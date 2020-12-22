@@ -22,6 +22,7 @@
         const result = document.getElementById("result");
         btn.addEventListener('click', function () {
             const xhr = new XMLHttpRequest();
+            //必须加上 Date.now(),解决ie游览器缓存问题。
             xhr.open("GET", "http://127.0.0.1:8000/ie?t=" + Date.now());
             xhr.send();
             xhr.onreadystatechange = function () {
