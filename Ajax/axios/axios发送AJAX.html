@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>axios发送AJAX</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+</head>
+
+<body>
+    <button>GEt</button>
+    <button>POST</button>
+    <button>AJAX</button>
+
+    <script>
+        const btns = document.querySelectorAll('button');
+        //配置 baseURL
+        axios.defaults.baseURL = "http://127.0.0.1:8000"
+        btns[0].onclick = function () {
+            axios.get('/axios-server', {
+                //url 参数
+                params: {
+                    id: 100,
+                    vip: 7
+                },
+                // 请求头参数
+                headers: {
+                    name: 'cc'
+                },
+            }).then((value) => {
+                console.log(value);
+            })
+        };
+        btns[1].onclick = function () {
+            axios.post('/axios-server', {
+                username: 'lisa',
+                password: '123456'
+            }, {
+                //url 参数
+                params: {
+                    id: 200,
+                    vip: 8
+                },
+                // 请求头参数
+                headers: {
+                    name: 'cc'
+                }
+            }).then((value) => {
+                console.log(value);
+            })
+        };
+        btns[2].onclick = function(){
+            axios({
+                method: 'POST',
+                url: '/axios-server',
+                params:{
+                    vip:3,
+                    money: 2333
+                },
+                headers: {
+                    a:100,
+                    b:200,
+                },
+                data: {
+                    username: 'liming',
+                    age: 16
+                }
+            }).then(value => {
+                console.log(value);
+            })
+        }
+    </script>
+</body>
+
+</html>

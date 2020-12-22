@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jq/njQuery-1.0.0.js"></script>
+   
+</head>
+<body>
+    <ul>
+        <li>你好啊</li>
+        <li>你好啊</li>
+        <li>你好啊</li>
+    </ul>
+    <script>
+        // console.log($('<p>1</p><p>2</p>'));
+        // console.log($('li'));
+        var arr = [1,2,3,4,5]
+        console.log($(arr));
+        //伪数组
+        var likeArr = {0:'cw',1:'22',2:'33',length:3}
+        console.log($(likeArr));
+        $(function(){
+            var res = document.querySelectorAll('li');
+            console.log(res);
+        })
+    </script>
+</body>
+</html>
